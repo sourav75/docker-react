@@ -1,0 +1,10 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t souravpcs/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run souravpcs/docker-react npm run test -- --coverage
+
